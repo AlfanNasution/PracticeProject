@@ -6,7 +6,9 @@
         <base-button @click="displayCourse">Show Course</base-button>
       </div>
       <!-- <p v-if="course.length === 0 || !course">No Data</p> -->
-      <ul>
+      <p v-if="isLoading">Loading...</p>
+      <p v-else-if="!isLoading && (course.length === 0 || !course)">NO data</p>
+      <ul v-else-if="!isLoading && course && course.length > 0">
         <course-result
           v-for="cor in course"
           :key="cor.id"
@@ -28,10 +30,12 @@ export default {
   data() {
     return {
       course: [],
+      isLoading: false,
     };
   },
   methods: {
     displayCourse() {
+      this.isLoading = true;
       fetch(
         "https://project-practice-beb49-default-rtdb.firebaseio.com/course.json"
       )
@@ -41,13 +45,14 @@ export default {
           }
         })
         .then((data) => {
+          this.isLoading = false;
           const course = [];
           for (const id in data) {
             course.push({
               id: id,
               name: data[id].name,
               kampus: data[id].kampus,
-              take: data[id].take
+              take: data[id].take,
             });
           }
           this.course = course;
@@ -55,7 +60,7 @@ export default {
     },
   },
   mounted() {
-      this.displayCourse();
-  }
+    this.displayCourse();
+  },
 };
 </script>
