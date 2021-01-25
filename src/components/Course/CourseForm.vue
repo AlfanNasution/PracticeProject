@@ -47,39 +47,6 @@
             <option value="OOP">OOP</option>
           </select>
         </div>
-        <!-- <h3>Pilih Kampus Anda</h3>
-        <div class="form">
-          <div>
-            <input
-              type="checkbox"
-              name="take"
-              id="take-calculus"
-              value="calculus"
-              v-model="take"
-            />
-            <label for="take-calculus">Calculus</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="take"
-              id="take-BasicProgram"
-              value="BasicProgram"
-              v-model="take"
-            />
-            <label for="take-BasicProgram">Basic Programming</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="take"
-              id="take-OOP"
-              value="OOP"
-              v-model="take"
-            />
-            <label for="take-OOP">Object Oriented Programming</label>
-          </div>
-        </div> -->
         <div>
           <base-button>Submit</base-button>
         </div>
@@ -95,6 +62,7 @@ export default {
       enteredName: "",
       pilihKampus: null,
       take: null,
+      id: null,
     };
   },
   methods: {
@@ -107,15 +75,17 @@ export default {
             "Content-type": "application/json",
           },
           body: JSON.stringify({
+            id: 1 + this.id,
             name: this.enteredName,
             kampus: this.pilihKampus,
-            take: this.take
+            take: this.take,
           }),
         }
       );
       this.enteredName = "";
       this.pilihKampus = null;
       this.take = null;
+      this.id++;
     },
   },
 };
@@ -126,7 +96,7 @@ export default {
   margin: 0.5rem 0;
 }
 
-.take{
+.take {
   display: block;
   width: 20rem;
   margin-top: 0.5rem;

@@ -28,6 +28,7 @@
           :name="cor.name"
           :kampus="cor.kampus"
           :take="cor.take"
+          @delete="deleteById($cor.id)"
         >
         </course-result>
       </table>
@@ -67,7 +68,7 @@ export default {
           const course = [];
           for (const id in data) {
             course.push({
-              id: id,
+              id: data[id].id,
               name: data[id].name,
               kampus: data[id].kampus,
               take: data[id].take,
@@ -75,6 +76,18 @@ export default {
           }
           this.course = course;
         });
+    },
+    deleteById(id) {
+      fetch(
+        "https://project-practice-beb49-default-rtdb.firebaseio.com/course.json/" +
+          id,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      ).then((response) => response.json());
     },
   },
   mounted() {
