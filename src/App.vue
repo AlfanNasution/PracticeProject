@@ -1,6 +1,8 @@
 <template>
+  <the-header :title="'Ini Header'"></the-header>
   <course-form></course-form>
   <user-take></user-take>
+  <the-footer :titleFooter="'Ini Footer'"></the-footer>
 </template>
 
 <script>

@@ -2,13 +2,13 @@
   <section>
     <base-card>
       <form @submit.prevent="submitData">
-        <div class="form-control">
+        <div class="form">
           <label for="name">Nama</label>
           <input type="text" id="name" name="name" v-model.trim="enteredName" />
         </div>
         <div>
           <h3>Pilih Kampus Anda</h3>
-          <div class="form-control">
+          <div class="form">
             <input
               id="kampus-telkom"
               name="kampus"
@@ -18,7 +18,7 @@
             />
             <label>Telkom University</label>
           </div>
-          <div class="form-control">
+          <div class="form">
             <input
               id="kampus-itb"
               name="kampus"
@@ -28,7 +28,7 @@
             />
             <label>ITB</label>
           </div>
-          <div class="form-control">
+          <div class="form">
             <input
               id="kampus-other"
               name="kampus"
@@ -39,7 +39,7 @@
             <label>Other</label>
           </div>
         </div>
-        <div class="form-control">
+        <div class="form">
           <label for="take">What to Learn</label>
           <select id="take" name="take" v-model="take">
             <option value="Calculus">Calculus</option>
@@ -48,7 +48,7 @@
           </select>
         </div>
         <!-- <h3>Pilih Kampus Anda</h3>
-        <div class="form-control">
+        <div class="form">
           <div>
             <input
               type="checkbox"
@@ -122,11 +122,11 @@ export default {
 </script>
 
 <style scoped>
-.form-control {
+.form {
   margin: 0.5rem 0;
 }
 
-input[type="text"] {
+.take{
   display: block;
   width: 20rem;
   margin-top: 0.5rem;

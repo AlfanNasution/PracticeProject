@@ -1,15 +1,17 @@
 <template>
-  <ul>
-    <h3></h3>
-    <h3>{{ name }}</h3>
-    <h3>{{ kampus }}</h3>
-    <h3>{{take}}</h3>
-  </ul>
+  <tbody>
+    <tr>
+      <td>{{ id }}</td>
+      <td>{{ name }}</td>
+      <td>{{ kampus }}</td>
+      <td>{{ take }}</td>
+    </tr>
+  </tbody>
 </template>
 
 <script>
 export default {
-  props: ["name", "kampus", "take"],
+  props: ["id", "name", "kampus", "take"],
 };
 </script>
 
