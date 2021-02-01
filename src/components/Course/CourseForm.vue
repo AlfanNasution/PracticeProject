@@ -75,7 +75,7 @@ export default {
             "Content-type": "application/json",
           },
           body: JSON.stringify({
-            id: 1 + this.id,
+            id: this.id + 1,
             name: this.enteredName,
             kampus: this.pilihKampus,
             take: this.take,

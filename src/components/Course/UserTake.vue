@@ -6,7 +6,7 @@
         <base-button @click="displayCourse">Show Course</base-button>
       </div>
       <p v-if="isLoading">Loading...</p>
-      <p v-else-if="!isLoading && (course.length === 0 || !course)">NO data</p>
+      <p v-else-if="!isLoading && (course.length === 0 || !course)">No data</p>
 
       <table
         class="table mt-5"
@@ -28,7 +28,7 @@
           :name="cor.name"
           :kampus="cor.kampus"
           :take="cor.take"
-          @delete="deleteById($cor.id)"
+          @delete="deleteById"
         >
         </course-result>
       </table>
@@ -42,12 +42,10 @@ import CourseResult from "./CourseResult.vue";
 export default {
   components: {
     CourseResult,
+    BaseButton,
   },
   data() {
-    BaseButton;
     return {
-      url:
-        "https://project-practice-beb49-default-rtdb.firebaseio.com/course.json",
       course: [],
       isLoading: false,
     };
@@ -76,18 +74,6 @@ export default {
           }
           this.course = course;
         });
-    },
-    deleteById(id) {
-      fetch(
-        "https://project-practice-beb49-default-rtdb.firebaseio.com/course.json/" +
-          id,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      ).then((response) => response.json());
     },
   },
   mounted() {
