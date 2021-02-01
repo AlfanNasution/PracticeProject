@@ -6,17 +6,19 @@
 
 <style scoped>
 button {
-  font: inherit;
-  border: 1px solid #360032;
-  background-color: #360032;
   color: white;
-  padding: 0.5rem 2rem;
-  cursor: pointer;
+  background: #4c8ffb;
+  border: 1px #3079ed solid;
+  box-shadow: inset 0 1px 0 #80b0fb;
 }
 
-button:hover,
+button:hover {
+  border: 1px #2f5bb7 solid;
+  box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #5a94f1;
+  background: #3f83f1;
+}
+
 button:active {
-  background-color: #5c0556;
-  border-color: #5c0556;
+  box-shadow: inset 0 2px 5px #2370fe;
 }
 </style>

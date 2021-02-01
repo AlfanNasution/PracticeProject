@@ -3,9 +3,6 @@
     <div>
       <h1>{{ title }}</h1>
     </div>
-    <!-- <div>
-      <a href="https://google.com">Go!</a>
-    </div> -->
   </header>
 </template>
 
@@ -17,12 +14,13 @@ export default {
 
 <style scoped>
 header {
+  top: 0;
   width: 100%;
-  height: 5rem;
   background-color: #640032;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
 }
 
 header h1 {

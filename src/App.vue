@@ -1,8 +1,8 @@
 <template>
-  <the-header :title="'Ini Header'"></the-header>
+  <the-header :title="'Admin Page'"></the-header>
   <course-form></course-form>
   <user-take></user-take>
-  <the-footer :titleFooter="'Ini Footer'"></the-footer>
+  <the-footer :titleFooter="'Visit Us'"></the-footer>
 </template>
 
 <script>
